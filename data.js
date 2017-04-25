@@ -32,7 +32,7 @@ var data = {
                     "createdAt" : "2017-04-22T13:23:19.510-06:00",
                     "nodes" : [ ],
                     "selected" : false,
-                    "votes" : "0",
+                    "votes" : 0,
                     "externalId" : "rJyn67Y0e"
                 },
                 {
@@ -42,7 +42,7 @@ var data = {
                     "createdAt" : "2017-04-23T08:50:16.512-06:00",
                     "nodes" : [ ],
                     "selected" : false,
-                    "votes" : "0",
+                    "votes" : 0,
                     "externalId" : "BJvx41B9Cl"
                 }
             ]
@@ -65,7 +65,7 @@ var data = {
                             "value" : "Sea sick",
                             "_id" : "58fbadb5d52c8e24fe0fc7f7",
                             "createdAt" : "2017-04-22T13:23:33.690-06:00",
-                            "votes" : "0",
+                            "votes" : 0,
                             "externalId" : "S1XC2pmFRl"
                         },
                         {
@@ -73,12 +73,12 @@ var data = {
                             "value" : "Food sucks",
                             "_id" : "58fbadb2d52c8e24fe0fc7f2",
                             "createdAt" : "2017-04-22T13:23:30.290-06:00",
-                            "votes" : "0",
+                            "votes" : 0,
                             "externalId" : "Skb9hp7YRe"
                         }
                     ],
                     "selected" : false,
-                    "votes" : "1",
+                    "votes" : 1,
                     "externalId" : "Skb9hp7YRe"
                 }
             ]
@@ -96,7 +96,7 @@ var data = {
                     "createdAt" : "2017-04-22T13:23:46.524-06:00",
                     "nodes" : [ ],
                     "selected" : true,
-                    "votes" : "0",
+                    "votes" : 0,
                     "externalId" : "H1GjT6mFAx"
                 }
             ]
