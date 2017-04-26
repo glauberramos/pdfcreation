@@ -44,6 +44,16 @@ var data = {
                     "selected" : false,
                     "votes" : 0,
                     "externalId" : "BJvx41B9Cl"
+                },
+                {
+                    "owner" : "58c05374e297d2598f8ae211",
+                    "value" : "Test note",
+                    "_id" : "58fcbf28718c3f1d3328540f",
+                    "createdAt" : "2017-04-23T08:50:16.512-06:00",
+                    "nodes" : [ ],
+                    "selected" : false,
+                    "votes" : 0,
+                    "externalId" : "BJvx41B9Cl"
                 }
             ]
         },
