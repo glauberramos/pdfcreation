@@ -99,4 +99,4 @@ data.columns.map(function(column, index) {
   })
 })
 
-doc.output('dataurlnewwindow')
+doc.save('yourPDF.pdf')
