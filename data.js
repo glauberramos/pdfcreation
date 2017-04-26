@@ -37,7 +37,7 @@ var data = {
                 },
                 {
                     "owner" : "58c05374e297d2598f8ae211",
-                    "value" : "d",
+                    "value" : "Test note",
                     "_id" : "58fcbf28718c3f1d3328540f",
                     "createdAt" : "2017-04-23T08:50:16.512-06:00",
                     "nodes" : [ ],
@@ -79,6 +79,17 @@ var data = {
                     ],
                     "selected" : false,
                     "votes" : 1,
+                    "externalId" : "Skb9hp7YRe"
+                },
+                {
+                    "owner" : "58c05374e297d2598f8ae211",
+                    "value" : "This is a not a group",
+                    "_id" : "58fbadb2d52c8e24fe0fc7f2",
+                    "type" : "GROUP",
+                    "createdAt" : "2017-04-22T13:23:30.290-06:00",
+                    "nodes" : [ ],
+                    "selected" : false,
+                    "votes" : 3,
                     "externalId" : "Skb9hp7YRe"
                 }
             ]

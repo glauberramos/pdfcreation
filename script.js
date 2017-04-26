@@ -3,19 +3,19 @@ const map = { 0: 'Jan', 1: 'Feb', 2: 'Mar', 3: 'Apr', 4: 'May', 5: 'Jun', 6: 'Ju
 const doc = new jsPDF()
 let position = 15
 
-function drawHeader(position) {
+function drawTableHeader() {
   doc.setDrawColor(221, 221, 221)
   doc.setFillColor(245, 245, 245)
   doc.roundedRect(5, position, 150, 12, 1, 1, 'FD')
 }
 
-function drawContent(position) {
+function drawTableContent() {
   doc.setDrawColor(221, 221, 221)
   doc.setFillColor(255, 255, 255)
-  doc.rect(5, position, 150, 10, 'FD')
+  doc.rect(5, position - 7, 150, 10, 'FD')
 }
 
-function drawTitle() {
+function drawDocTitle() {
   doc.setFontSize(22)
   doc.setFontType("bold")
   doc.text(data.name, 10, position)
@@ -31,7 +31,7 @@ function drawTitle() {
   doc.setLineWidth(.5)
   doc.setDrawColor(230, 230, 230)
   doc.line(10, position, 150, position)
-  position = position + 15
+  position = position + 12
   doc.setLineWidth(0)
 }
 
@@ -42,38 +42,43 @@ function drawInfo() {
   position = position + 10
 }
 
-drawTitle();
+function drawColumnTitle(column) {
+    drawTableHeader()
+    position = position + 7
+    doc.text(column.placeholder, 10, position)
+    position = position + 10
+}
+
+function drawRowContent(row) {
+  if (row.selected) {
+    doc.setFontType("bold")
+  }
+
+  drawTableContent()
+
+  doc.text('Votes ' + row.votes + ' - ' + row.value, 10, position)
+  position = position + 10
+
+  doc.setFontType("normal")
+
+  if (row.nodes.length > 0) {
+    row.nodes.map(function(node, index) {
+      drawTableContent()
+
+      doc.text(node.value, 10 + doc.getStringUnitWidth('Votes ' + row.votes + ' - ') * 5, position)
+      position = position + 10
+    })
+  }
+}
+
+drawDocTitle();
 drawInfo();
 
 data.columns.map(function(column, index) {
-  drawHeader(position)
-
-  position = position + 7
-  doc.setFontSize(18)
-  doc.text(column.placeholder, 10, position)
-  doc.setFontSize(14)
-  position = position + 10
+  drawColumnTitle(column)
 
   column.rows.map(function(row, index) {
-    if (row.selected) {
-      doc.setFontType("bold")
-    }
-
-    drawContent(position - 7)
-
-    doc.text('Votes ' + row.votes + ' - ' + row.value, 10, position)
-    position = position + 10
-
-    doc.setFontType("normal")
-
-    if (row.nodes.length > 0) {
-      row.nodes.map(function(node, index) {
-        drawContent(position - 7)
-
-        doc.text('Votes ' + node.votes + ' - ' + node.value, 10, position)
-        position = position + 10
-      })
-    }
+    drawRowContent(row)
   })
 })
 
