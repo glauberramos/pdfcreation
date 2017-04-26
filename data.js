@@ -12,7 +12,7 @@ var data = {
             "What didn't go well?",
             "What needs change?"
         ],
-        "cardCount" : "4",
+        "cardCount" : 4,
         "participationRate" : "0.34"
     },
     "participants" : [
@@ -31,7 +31,7 @@ var data = {
                     "_id" : "58fbada7d52c8e24fe0fc7e9",
                     "createdAt" : "2017-04-22T13:23:19.510-06:00",
                     "nodes" : [ ],
-                    "selected" : false,
+                    "selected" : true,
                     "votes" : 0,
                     "externalId" : "rJyn67Y0e"
                 },
