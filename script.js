@@ -1,51 +1,46 @@
 const map = { 0: 'Jan', 1: 'Feb', 2: 'Mar', 3: 'Apr', 4: 'May', 5: 'Jun', 6: 'Jul', 7: 'Aug', 8: 'Sep', 9: 'Oct', 10: 'Nov', 11: 'Dec' }
 
 const doc = new jsPDF()
-let position = 15
+let position = 20
 
-function drawTableHeader() {
+function drawHeaderBackground() {
   doc.setDrawColor(221, 221, 221)
   doc.setFillColor(245, 245, 245)
-  doc.roundedRect(5, position, 150, 12, 1, 1, 'FD')
+  doc.roundedRect(10, position, 170, 12, 1, 1, 'FD')
 }
 
-function drawTableContent() {
+function drawContentBackground() {
   doc.setDrawColor(221, 221, 221)
   doc.setFillColor(255, 255, 255)
-  doc.rect(5, position - 7, 150, 10, 'FD')
+  doc.rect(10, position - 7, 170, 10, 'FD')
 }
 
 function drawDocTitle() {
   doc.setFontSize(22)
   doc.setFontType("bold")
   doc.text(data.name, 10, position)
-  position = position + 10
+  position = position + 7
 
   doc.setFontType("italic")
   doc.setFontSize(14)
   const date = new Date(data.updatedAt)
   doc.text(date.getHours() + ':' + date.getMinutes() + ' ' + map[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear(), 10, position)
-  position = position + 5
+  position = position + 17
   doc.setFontType("normal")
-
-  doc.setLineWidth(.5)
-  doc.setDrawColor(230, 230, 230)
-  doc.line(10, position, 150, position)
-  position = position + 12
-  doc.setLineWidth(0)
 }
 
 function drawInfo() {
-  doc.text('Number of cards: ' + data.participants.length, 10, position)
-  position = position + 10
-  doc.text('Number of participants: ' + data.meta.cardCount, 10, position)
+  doc.setDrawColor(221, 221, 221)
+  doc.setFillColor(245, 245, 245)
+  doc.roundedRect(10, position - 7, 170, 10, 1, 1, 'FD')
+  doc.text('Total cards: ' + data.participants.length + '   ' + 'Total participants: ' + data.meta.cardCount, 15, position)
   position = position + 10
 }
 
 function drawColumnTitle(column) {
-    drawTableHeader()
+    drawHeaderBackground()
     position = position + 7
-    doc.text(column.placeholder, 10, position)
+    doc.text(column.placeholder, 15, position)
     position = position + 10
 }
 
@@ -54,18 +49,18 @@ function drawRowContent(row) {
     doc.setFontType("bold")
   }
 
-  drawTableContent()
+  drawContentBackground()
 
-  doc.text('Votes ' + row.votes + ' - ' + row.value, 10, position)
+  doc.text('Votes ' + row.votes + ' - ' + row.value, 15, position)
   position = position + 10
 
   doc.setFontType("normal")
 
   if (row.nodes.length > 0) {
     row.nodes.map(function(node, index) {
-      drawTableContent()
+      drawContentBackground()
 
-      doc.text(node.value, 10 + doc.getStringUnitWidth('Votes ' + row.votes + ' - ') * 5, position)
+      doc.text(node.value, 15 + doc.getStringUnitWidth('Votes ' + row.votes + ' - ') * 5, position)
       position = position + 10
     })
   }
